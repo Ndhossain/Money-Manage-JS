@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Money Manager</title>
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -20,14 +19,63 @@
     </script>
   </head>
   <body class="bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
-    <header>
-        <h1 class="text-5xl font-semibold text-center">Money Manager</h1>
+    <header class="mb-8">
+      <h1 class="text-5xl font-semibold text-center">Money Manager</h1>
     </header>
-    <main class="md:w-[90%] mx-auto p-2 md:p-0 backdrop-blur-lg bg-pink-500/20 rounded-xl">
+    <main
+      class="md:w-[90%] mx-auto p-2 md:p-0 backdrop-blur-lg bg-pink-500/20 rounded-xl flex flex-col md:flex-row"
+    >
+      <div class="md:w-6/12">
+        <img
+          class="rounded-xl h-[85vh] w-full"
+          src="https://images.unsplash.com/photo-1609151968443-992a5946e227?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+        />
+      </div>
+      <div class="p-6 md:w-6/12 flex flex-col gap-2 items-center">
         <div>
-            <img class="rounded-xl w-4/12" src="https://images.unsplash.com/photo-1609151968443-992a5946e227?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" />
+          <h3 class="text-center text-xl font-semibold mb-3">Income</h3>
+          <!-- salary section -->
+          <div>
+            <label class="text-base font-medium mr-2" for="salary">Salary: </label>
+            <input id="salary-value" type="number" value="0" class="outline-none bg-transparent border px-3 py-1 rounded" min="0" />
+          </div>
         </div>
-        <div></div>
+        <div>
+          <h3 class="text-center text-xl font-semibold mb-3">Expenses</h3>
+          <!-- food expense -->
+          <div class="mb-4">
+            <label class="text-base font-medium mr-2" for="Food">Food: </label>
+            <input id="food-value" type="number" value="0" class="outline-none bg-transparent border px-3 py-1 rounded" min="0" />
+          </div>
+          <!-- rent expense -->
+          <div class="mb-4">
+            <label class="text-base font-medium mr-2" for="Rent">Rent: </label>
+            <input id="rant-value" type="number" value="0" class="outline-none bg-transparent border px-3 py-1 rounded" min="0" />
+          </div>
+          <!-- transport expense -->
+          <div class="mb-4">
+            <label class="text-base font-medium mr-2" for="Transport">Transport: </label>
+            <input id="transport-value" type="number" value="0" class="outline-none bg-transparent border px-3 py-1 rounded" min="0" />
+          </div>
+        </div>
+        <button id="calculate" class="font-medium rounded-md px-5 py-2 bg-pink-500">Calculate</button>
+        <div>
+          <h2 class="mb-3 text-2xl font-semibold">Total Income: <span id="totalIncome">0</span></h2>
+          <h2 class="mb-3 text-2xl font-semibold">Total Expenses: <span id="totalExpenses">0</span></h2>
+          <h2 class="mb-3 text-2xl font-semibold">Remaining Balance: <span id="afterExpensesBalance">0</span></h2>
+        </div>
+        <div class="mb-4 flex gap-3 items-center">
+          <label class="text-base font-medium mr-2" for="Save">Save: </label>
+          <input disabled id="saving-value" type="number" value="0" class="outline-none bg-transparent border px-3 py-1 rounded w-28" min="0" />
+          <span>%</span>
+          <button disabled id="saving-button" class="font-medium rounded-md px-5 py-2 bg-pink-500">Save</button>
+        </div>
+        <div>
+          <h2 class="mb-3 text-2xl font-semibold">Saving Amount: <span id="saving">0</span></h2>
+          <h2 class="mb-3 text-2xl font-semibold">Remaining Balance: <span id="afterSavingBalance">0</span></h2>
+        </div>
+      </div>
     </main>
+    <script src="js/script.js"></script>
   </body>
 </html>
